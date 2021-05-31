@@ -16,7 +16,7 @@ export function RepositoryList() {
     useEffect(() => {
         fetch('https://api.github.com/users/armandojunior/repos')
             .then(response => response.json())
-            .then(data => console.log(data));
+            .then(data => setRepositories(data));
     }, []);
 
     return (
@@ -24,12 +24,9 @@ export function RepositoryList() {
             <h1>Lista de repositórios</h1>
 
             <ul>
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
-                <RepositoryItem repository={repository} />
+                {repositories.map(repository => {
+                    return <RepositoryItem key={repository.name} repository={repository} /> 
+                })}
             </ul>
         </section>
     );

@@ -1,9 +1,14 @@
+import { Header } from './components/Header';
 import { RepositoryList } from './components/RepositoryList';
+import { TaskList } from './components/TaskList';
 import './styles/global.scss';
 
 export function App() {
-    // throw new Error('Eita Giovana, o forninho caiu!')
-    return (
-        <RepositoryList />
-    )
+  return (
+    // <RepositoryList />
+    <>
+      <Header />
+      <TaskList />
+    </>
+  )
 }
